@@ -1,0 +1,119 @@
+body{
+    font-family:Arial;
+    font-size:20px;
+}
+.wrap{
+    width:470px;
+    height:200px;
+    margin:50px auto;
+    background-color:#fff;
+}
+
+.wrap h1{
+    font-size:20px;
+    text-align: center;
+    line-height:200px
+}
+.effect{
+    position:relative;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.3),0px 0px 40px rgba(0,0,0,0.1) inset;
+    -moz-box-shadow: 0px 1px 4px rgba(0,0,0,0.3),0px 0px 40px rgba(0,0,0,0.1) inset;
+    -webkit-moz-box-shadow:0px 1px 4px rgba(0,0,0,0.3),0px 0px 40px rgba(0,0,0,0.1) inset;
+    -o-box-shadow:0px 1px 4px rgba(0,0,0,0.3),0px 0px 40px rgba(0,0,0,0.1) inset;
+}
+
+.effect::after ,.effect::after{
+    content:'';
+    position:absolute;
+    background-color:#f00b0d;
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
+    -moz-border-radius:100px/10px;
+    -webkit-border-radius: 100px/10px;
+    -webkit-border-radius: 100px/10px;
+    -moz-border-radius: 100px/10px;
+    border-radius: 100px/10px;
+    z-index: -1;
+}
+
+
+ul.box{
+    width:980px;
+    height:auto;
+    overflow:hidden;
+    clear:both;
+    margin:20px auto;
+    padding: 0px;
+}
+
+.box li img{
+    width: 290px;
+    height: 210px;
+    padding: 5px;
+}
+
+
+ul,li{
+    list-style:none;
+}
+ul.box li{
+    width: 300px;
+    height: 220px;
+    overflow:hidden;
+    padding: 0;
+    margin:20px 10px;
+    float:left;
+    position:relative;
+    background-color:#fff;
+    border:2px solid #efefef;
+    text-align:center;
+    line-height:220px;
+    position:relative;
+    list-style-type:none;
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,0.27),0 0 60px rgba(0,0,0,0.1) inset;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.27),0 0 60px rgba(0,0,0,0.1) inset;;
+}
+
+
+
+ul.box li::before{
+    z-index: 2;
+    position: absolute;
+    width:90%;
+    height:80%;
+    content:'';
+    left:20px;
+    bottom:5px;
+    background: #f00b0d;
+    /*background-color:#f00b0d;*/
+    -moz-box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 0 8px 20px  rgba(0,0,0,0.8);
+    box-shadow: 0 8px 20px  rgba(0,0,0,0.8);
+
+    -moz-transform: skew(-12deg) rotate(-4deg);
+}
+
+
+
+
+/*ul.box li::after{*/
+    /*z-index: 3;*/
+    /*position: absolute;*/
+    /*width: 90%;*/
+    /*height:80%;*/
+    /*content:'';*/
+    /*right:20px;*/
+    /*bottom:5px;*/
+    /*background: #f00b0d;*/
+    /*box-shadow: 0 8px 20px rgba(0,0,0,0.8);*/
+    /*-moz-transform: skew(12deg) rotate(4deg);*/
+    /*-moz-box-shadow: 0 8px 20px rgba(0,0,0,0.8);*/
+    /*-webkit-box-shadow: 0 8px 20px  rgba(0,0,0,0.8);*/
+    /*box-shadow: 0 8px 20px  rgba(0,0,0,0.8);*/
+
+/*}*/
+
+

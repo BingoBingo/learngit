@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jd</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="swiper.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <style>
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:#000;
+            margin: 0;
+            padding: 0;
+            /*max-width: 640px;*/
+            /*min-width: 320px;*/
+        }
+        .swiper-container {
+            /*width: 100%;*/
+            /*height: 100%;*/
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .card-content , .nav-content,.hot-content{
+            margin: 0 auto;
+            max-width: 640px;
+            min-width: 320px;
+        }
+        .quick-entry-nav::after {
+            clear: both;
+            content: ".";
+            display: block;
+            font-size: 0;
+            height: 0;
+            visibility: hidden;
+        }
+
+        .quick-entry-link {
+            color: #666;
+            display: block;
+            float: left;
+            font-size: 12px;
+            padding-bottom: 11px;
+            text-align: center;
+            text-decoration: none;
+            width: 25%;
+        }
+
+        .quick-entry-link image{
+            display: block;
+            height: 40px;
+            margin: 0 auto 6px;
+            width: 40px;
+        }
+        .quick-entry-nav a span{
+            display: block;
+        }
+        .nav-content{
+            margin-top: -20px;
+        }
+
+        .swiper-slide{
+            width: 197px;
+        }
+        .bdr-r {
+            position: relative;
+        }
+        .bdr-r::after {
+            border-right: 1px solid #f0f0f0;
+            content: "";
+            height: 100%;
+            position: absolute;
+            right: -1px;
+            top: 0;
+            transform: scaleX(0.5);
+            width: 1px;
+            z-index: 10;
+        }
+        .seckill-item-img a {
+            text-decoration: none;
+        }
+        .seckill-new-price {
+            color: #ed5657;
+            display: block;
+            font-size: 14px;
+            line-height: 14px;
+            margin-top: 8px;
+            text-align: center;
+        }
+        .seckill-original-price {
+            color: #888;
+            display: block;
+            font-size: 10px;
+            margin: 5px 0 12px;
+            text-align: center;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <div class="content card-content">
+            <!-- Slider -->
+            <div class="swiper-container" data-space-between='10'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="image/banner_01.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="image/banner_02.jpg" alt=""></div>
+                    <div class="swiper-slide"><img src="image/banner_03.jpg" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="card nav-card nav-content">
+                <div class="card-content">
+                    <div class="card-content-inner">
+
+                        <nav class="quick-entry-nav">
+                            <a href="http://m.jd.com/category/all.html" page_name="index" report-eventparam="分类查询" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t2275/267/2109565733/4908/6f42753f/56be05dcN94355bd6.png"><span>分类查询</span></a>
+                            <a href="http://home.m.jd.com/user/userAllOrderList.action" page_name="index" report-eventparam="物流查询" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t2494/111/1522569622/6459/1f1f809b/56be05fdNdb68df6a.png"><span>物流查询</span></a>
+                            <a href="http://p.m.jd.com/cart/cart.action" page_name="index" report-eventparam="购物车" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t2575/81/1126081392/5354/bb2caed8/56be0620N63774172.png"><span>购物车</span></a>
+                            <a href="http://home.m.jd.com/myJd/home.action" page_name="index" report-eventparam="我的京东" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t1903/34/1497088769/5451/d1b83d9/56be0635N1751d492.png"><span>我的京东</span></a>
+                            <a href="http://chongzhi.m.jd.com/" page_name="index" report-eventparam="抢2元话费" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t1909/34/1706299643/3956/29f28dcb/56d543d8Nd7fce807.png"><span>抢2元话费</span></a>
+                            <a href="http://coupon.m.jd.com/center/getCouponCenter.action" page_name="index" report-eventparam="领券中心" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t2236/230/2793958073/6283/61ea3eaa/56f40bb7N735608ae.png"><span>领券中心</span></a>
+                            <a href="http://sale.jd.com/m/act/ysrEnGBzJC7.html" page_name="index" report-eventparam="京东超市" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t2356/128/2278675876/7830/d243d1fb/56be0684Nfe796382.png"><span>京东超市</span></a>
+                            <a href="http://home.m.jd.com/myJd/myFocus/focusWare.action" page_name="index" report-eventparam="我的关注" report-eventid="MHome_Icons" class="quick-entry-link fz12 J_ping"><img width="45" height="45" src="//m.360buyimg.com/mobilecms/s80x80_jfs/t2017/363/2247275282/5267/d7e8df50/56be06c0N6a216cbd.png"><span>我的关注</span></a>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card nav-card hot-content">
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        <div class="hotGoods-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+
+                                    <div class="seckill-item-img bdr-r">
+                                        <a class="seckill-new-link J_ping" href="http://coupon.m.jd.com/seckill/seckillList?wareId=2525047" page_name="index" report-eventparam="29_0_2525047_1_0_0" report-eventid="MHome_HandSeckill">
+                                            <img border="0" width="100%" class="seckill-photo" src="//m.360buyimg.com/mobilecms/s220x220_jfs/t2026/214/2770365060/344716/cde7ff2b/56ea81afN0e3f6faa.jpg!q70.jpg" style="height: 174px;">
+                                            <div class="seckill-tip tagType-seckill-2 tagCount-seckill-2">超值</div>
+                                        </a>
+                                    </div>
+
+                                    <div class="seckill-item-price">
+                                        <span class="seckill-new-price">¥29.9</span>
+                                        <span class="seckill-original-price">¥35</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="seckill-item-img bdr-r">
+                                        <a class="seckill-new-link J_ping" href="http://coupon.m.jd.com/seckill/seckillList?wareId=2335585" page_name="index" report-eventparam="29_0_2335585_1_0_1" report-eventid="MHome_HandSeckill">
+                                            <img border="0" width="100%" class="seckill-photo" src="//m.360buyimg.com/mobilecms/s220x220_jfs/t2173/330/2021661871/134640/f9c4cae9/56a0a92bNfd2c89c4.jpg!q70.jpg" style="height: 174px;">
+                                            <div class="seckill-tip tagType-seckill-2 tagCount-seckill-2">热卖</div>
+                                        </a>
+                                    </div>
+                                    <div class="seckill-item-price">
+                                        <span class="seckill-new-price">¥99</span>
+                                        <span class="seckill-original-price">¥259</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="seckill-item-img bdr-r">
+                                        <a class="seckill-new-link J_ping" href="http://coupon.m.jd.com/seckill/seckillList?wareId=1957753434" page_name="index" report-eventparam="29_0_1957753434_1_0_2" report-eventid="MHome_HandSeckill">
+                                            <img border="0" width="100%" class="seckill-photo" src="//m.360buyimg.com/mobilecms/s220x220_jfs/t2290/248/1925337777/104951/bd5489eb/56e2a998N9c71ed05.jpg!q70.jpg" style="height: 174px;">
+                                            <div class="seckill-tip tagType-seckill-2 tagCount-seckill-2">推荐</div>
+                                        </a>
+                                    </div>
+                                    <div class="seckill-item-price">
+                                        <span class="seckill-new-price">¥499</span>
+                                        <span class="seckill-original-price">¥999</span>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="seckill-item-img bdr-r"><a class="seckill-new-link J_ping" href="http://coupon.m.jd.com/seckill/seckillList?wareId=1950749" page_name="index" report-eventparam="undefined" report-eventid="MHome_HandSeckill"><img border="0" width="100%" class="seckill-photo" src="//m.360buyimg.com/mobilecms/s220x220_jfs/t2431/158/1813692734/256686/3794e98c/56dd2936Nf6c06fe3.jpg!q70.jpg" style="height: 174px;"><div class="seckill-tip tagType-seckill-2  tagCount-seckill-2">满减</div></a></div>
+                                    <div class="seckill-item-price"><span class="seckill-new-price">¥158</span><span class="seckill-original-price">¥188</span></div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="seckill-item-img bdr-r"><a class="seckill-new-link J_ping" href="http://coupon.m.jd.com/seckill/seckillList?wareId=1950749" page_name="index" report-eventparam="undefined" report-eventid="MHome_HandSeckill"><img border="0" width="100%" class="seckill-photo" src="//m.360buyimg.com/mobilecms/s220x220_jfs/t2431/158/1813692734/256686/3794e98c/56dd2936Nf6c06fe3.jpg!q70.jpg" style="height: 174px;"><div class="seckill-tip tagType-seckill-2  tagCount-seckill-2">满减</div></a></div>
+                                    <div class="seckill-item-price"><span class="seckill-new-price">¥158</span><span class="seckill-original-price">¥188</span></div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="hotGoods-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="swiper.min.js"></script>
+
+
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        speed: 400,
+        spaceBetween: 100,
+        autoplay: 2000,//可选选项，自动滑动
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+
+    var swiper = new Swiper('.hotGoods-container', {
+        pagination: '.hotGoods-pagination',
+        slidesPerView: 3,
+        paginationClickable: true,
+        spaceBetween: 30
+    });
+
+
+</script>
+</body>
+</html>

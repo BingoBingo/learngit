@@ -1,0 +1,28 @@
+.loginPanel{
+    width: 380px;
+    height:247px;
+    background-color:#f6f6f6;
+    left:400px;
+    top:100px;
+    position: absolute;
+    border:1px solid #ccc;
+    border-radius:10px;
+    box-shadow:0 0 8px #000;
+    -moz-box-shadow:0 0 8px #000;
+    -moz-border-radius: 10px;
+}
+.ui_boxClose{
+
+}
+.login_logo_webqq{
+    background:url('login_window_logo.png') no-repeat -210px 0px;
+    margin-left: 100px;
+    margin-top: 10px;
+    width: 200px;
+    height: 44px;
+    cursor:move;
+}
+.inputs{
+    margin-left: 80px;
+    margin-top: 30px;
+}

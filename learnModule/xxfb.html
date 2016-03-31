@@ -1,0 +1,266 @@
+<div>
+    <script type="text/javascript">
+        (function($){
+            dk_slideplayer = function(object,config){
+                this.obj = object;
+                this.n =0;
+                this.j =0;
+                var _this = this;
+                var t;
+                var defaults = {width:"300px",height:"200px",fontsize:"12px",right:"0px",bottom:"3px",time:"5000"};
+                this.config = $.extend(defaults,config);
+                this.count = $(this.obj + " li").size();
+
+                if(this.config.fontsize == "14px"){
+                    this.size = "14px";this.height = "23px";this.right = "6px";this.bottom = "15px";
+                }else{
+                    this.size = "12px";this.height = "21px";this.right = "6px";this.bottom = "10px";
+                }
+                // Download by http://sc.xueit.com
+                this.factory = function(){
+                    //元素定位
+                    $(this.obj).css({position:"relative",zIndex:"0",margin:"0",padding:"0",width:this.config.width,height:this.config.height,overflow:"hidden"})
+                    $(this.obj).prepend("<div style='position:absolute;z-index:20;right:"+this.config.right+";bottom:"+this.config.bottom+"'></div>");
+                    $(this.obj + " li").css({position:"absolute",top:"0",left:"0",width:"100%",height:"100%",overflow:"hidden"}).each(function(i){
+                        console.log("iFFF---"+i);
+                        $(_this.obj + " div").append("<a>"+(i+1)+"</a>");
+                    });
+                    $(this.obj + " img").css({border:"none",width:"100%",height:"100%"})
+                    this.resetclass(this.obj + " div a",0);
+                    //标题背景
+                    $(this.obj).prepend("<div class='dkTitleBg'></div>");
+                    $(this.obj + " .dkTitleBg").css({position:"absolute",margin:"0",padding:"0",zIndex:"1",bottom:"0",left:"0",width:"100%",height:_this.height,background:"#000",opacity:"0.4",overflow:"hidden"})
+                    //插入标题
+                    $(this.obj).prepend("<div class='dkTitle'></div>");
+                    $(this.obj + " p").each(function(i){
+                        console.log("abc---"+i);
+                        $(this).appendTo($(_this.obj + " .dkTitle")).css({position:"absolute",margin:"0",padding:"0",zIndex:"2",bottom:"0",left:"0",width:"100%",height:_this.height,lineHeight:_this.height,textIndent:"5px",textDecoration:"none",fontSize:_this.size,color:"#FFFFFF",background:"none",opacity:"1",overflow:"hidden"});
+                        if(i!= 0){$(this).hide()}
+                    });
+                    this.slide();
+                    this.addhover();
+                    t = setInterval(this.autoplay,this.config.time);
+                }
+                //图片渐影
+                this.slide = function(){
+                    $(this.obj + " div a").mouseover(function(){
+                        _this.j = $(this).text() - 1;
+                        _this.n = _this.j;
+                        //console.log("n"+_this.n);
+                        //console.log("count" +_this.count);
+                        if (_this.j >= _this.count){return;}
+                        $(_this.obj + " li:eq(" + _this.j + ")").fadeIn("200").siblings("li").fadeOut("200");
+                        $(_this.obj + " .dkTitle p:eq(" + _this.j + ")").show().siblings().hide();
+                        _this.resetclass(_this.obj + " div a",_this.j);
+                    });
+                }
+                //滑过停止
+                this.addhover = function(){
+                    $(this.obj).hover(function(){clearInterval(t);}, function(){t = setInterval(_this.autoplay,_this.config.time)});
+                }
+                //自动播放
+                this.autoplay = function(){
+
+                    console.log("lunbo"+_this.count);
+                    _this.n = _this.n >= (_this.count - 1) ? 0 : ++_this.n;
+//            $(_this.obj + " div a").eq(_this.n).triggerHandler('mouseover');
+//			console.log(_this.n);
+
+                    $(_this.obj + " div a").eq(_this.n).triggerHandler('mouseover');
+                }
+                //翻页函数
+                this.resetclass =function(obj,i){
+                    $(obj).css({float:"left",marginRight:"3px",width:"15px",height:"14px",lineHeight:"15px",textAlign:"center",fontWeight:"800",fontSize:"12px",color:"#000",background:"#FFFFFF",cursor:"pointer"});
+                    $(obj).eq(i).css({color:"#FFFFFF",background:"#FF7D01",textDecoration:"none"});
+                    //更新右侧信息
+
+                    resetTitle(i);
+                }
+                this.factory();
+            }
+        })(jQuery)
+
+    </script>
+</div>
+<div class="widget-main no-padding" >
+    <div class="tab-content no-padding">
+        <% var i=-3; _.each(model,function(info,key){ i++;var tab = _.find(tabs,function(i){return i.id===key;});%>
+        <div id="w_<%=id+'-'+key%>" class="tab-pane <%=(key===tabs[0].id?'active':'') %>">
+            <% if(i==1){ %>
+
+            <table style="width:100%;height:87%;">
+                <tr style="width:100%;height:100%;">
+                    <td style="width:50%">
+                        <div class="minmetals-GroupNews-new">
+                            <div class="minmetals-GroupNews-new-img">
+                                <ul id="pub_slideplay" style="height:100%;width:100%;">
+                                    <% var num = 0; _.each(info.items,function(row){ if(num<5){ %>
+                                    <li>
+                                        <a target="_blank" href="<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/<%=row.ThisFlowAtDocUID%>?opendocument">
+                                            <img alt="" id="image_<%=num%>" src="<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/<%=row.ThisFlowAtDocUID%>/$file/<%=row.StPicAttachment%>"/>
+                                            <input type="hidden" id="Title_<%=num%>" value="<%=row.StTitle%>"/>
+                                            <input type="hidden" id="ZW_<%=num%>" value="<%=row.stPictureInfo%>"/>
+                                            <input type="hidden" id="UID_<%=num%>" value="<%=row.ThisFlowAtDocUID%>"/>
+                                        </a>
+                                    </li>
+                                    <%} num++;}); %>
+
+                                    <!--<% var num = 0; _.each(info.items,function(row){ if(num<1){ %>-->
+                                    <!--<li>-->
+                                    <!--<a target="_blank" href="<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/<%=row.ThisFlowAtDocUID%>?opendocument">-->
+                                    <!--<img alt="" id="image_0" src="<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/<%=row.ThisFlowAtDocUID%>/$file/<%=row.StPicAttachment%>"/>-->
+                                    <!--<input type="hidden" id="Title_4" value="<%=row.StTitle%>"/>-->
+                                    <!--<input type="hidden" id="ZW_4" value="<%=row.stPictureInfo%>"/>-->
+                                    <!--<input type="hidden" id="UID_4" value="<%=row.ThisFlowAtDocUID%>"/>-->
+                                    <!--</a>-->
+                                    <!--</li>-->
+                                    <!--<%} num++;}); %>-->
+
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div style="font-size: 12px;line-height: 21px;	color: #858484;	text-decoration: none;	padding-top: 4px;	padding-right: 12px;	padding-bottom: 4px;	padding-left: 12px;" id="imgInfo">
+                            <P id="TPXW_Title_Size"  style="font-size: 13px;	font-weight: bold;text-align: left;color: #333333;	text-decoration: none;">
+                                <A id="linkUrl1" href="#" target=_blank></A>
+                            </P>
+                            <P>
+                                <A id="linkUrl2" href="#" target=_blank></A>
+                            </P>
+                            <P style="text-align: left">
+                            <div class="col-sm-0 col-sm-offset-8"><a style="display:none" id="ghjkl<%=id%>" href="#w_<%=id%>" style="text-decoration:none">more »</a> </div>
+                            </P>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+
+            <table class="table " >
+                <thead></thead>
+                <tbody>
+                <% var num = 0; _.each(info.items,function(row){if(num >= 5){
+
+                var temp = row.StTitle.toString();if(temp.length >30) temp = temp.substr(0,29) + "...";
+                %>
+                <tr>
+                    <td class="profile-activity clearfix"><a title="<%=row.StTitle%>" href="<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/<%=row['@DocumentUniqueID']%>?opendocument" target="_blank"><%=temp%><font style="float:right;font-family:Open Sans"><%=row.StPublishDate%></font></a></td>
+                </tr>
+                <% }num++;}); %>
+                </tbody>
+            </table>
+
+            <%;}else{%>
+            <table class="table" >
+                <thead></thead>
+                <tbody>
+                <% _.each(info.items,function(row){
+
+                var temp = row.StTitle.toString();if(temp.length >30) temp = temp.substr(0,29) + "...";
+
+                var date1=new Date();
+
+                var strSeparator = "-"; //日期分隔符
+
+                var strdate2 = row.StPubDate.toString().split(" ")[0];
+                var dateArray;
+
+                dateArray= strdate2.split(strSeparator);
+
+                var date2 = new Date(dateArray[0], dateArray[1]-1, dateArray[2]);
+
+                var showOrHidden = "";
+                var date3 = date1.getTime()-date2.getTime();
+                date3 = (date3/1000/60/60/24);
+                if(date3 > 3)
+                {
+                showOrHidden = "none";
+                }
+
+
+                %>
+                <tr>
+                    <td class="profile-activity clearfix"><a title="<%=row.StTitle%>" href="<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/<%=row['@DocumentUniqueID']%>?opendocument" target="_blank"><%=temp%><img src="<%=ROOT_PATH%>/DigiShell/img/minmetals-n.gif" style="margin: -6px 3px 1px 4px;display:<%=showOrHidden%>"><font style="float:right;font-family:Open Sans"><%=row.StPubDate.toString().split(" ")[0].substr(0,10)%></font></a></td>
+
+                </tr>
+                <%
+
+
+
+                }); %>
+                </tbody>
+            </table>
+            <%}%>
+            <table class="col-sm-0 col-sm-offset-10"><tr><td><a style="display:none" onmouseover="this.href = document.getElementById('hiddenData').value" href=""   id="dbURL" style="text-decoration:none">more »</a></td></tr></table>
+        </div>
+        <% }); %>
+
+    </div>
+    <input type="hidden" id="hiddenData" value="#m_appSite/PERSONAL_MESSAGE_DATABASE/0_0_3"/>
+</div>
+<script type="text/javascript">
+    new dk_slideplayer("#pub_slideplay",{width:"100%;",height:"100%",fontsize:"12px",time:"5000"});
+
+    //$("#pub_slideplay li:first image").attr("src","");
+
+    function cutStr(param)
+    {
+        if(param.length >= 95)
+        {
+            param = param.substr(0,95)+"...";
+        }
+        return param;
+    }
+
+
+
+
+
+    //	document.getElementById("linkUrl2").innerHTML =  cutStr(document.getElementById("ZW_4").value);
+    //	document.getElementById("linkUrl1").innerHTML =  cutStr(document.getElementById("Title_4").value);
+    //
+    //	document.getElementById("linkUrl1").href = "<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/"+document.getElementById("UID_4").value+"?opendocument";
+    //	document.getElementById("linkUrl2").href =  "<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/"+document.getElementById("UID_4").value+"?opendocument";
+
+
+    var image4 = document.getElementById("image_4").src;
+    console.log($("image_4").attr("src"));
+
+    //document.getElementById("image_4").src = document.getElementById("image_0").src;
+    function resetTitle(param)
+    {
+        //document.getElementById("image_4").src = image4;
+        //document.getElementById("image_"+param).src = document.getElementById("image_"+param).src;
+        if(document.getElementById("Title_"+param))
+        {
+            document.getElementById("linkUrl1").innerHTML = cutStr(document.getElementById("Title_"+param).value);
+            document.getElementById("linkUrl1").title = document.getElementById("Title_"+param).value;
+        }
+        if(document.getElementById("ZW_"+param))
+        {
+            document.getElementById("linkUrl2").innerHTML =  cutStr(document.getElementById("ZW_"+param).value);
+            document.getElementById("linkUrl2").title = document.getElementById("ZW_"+param).value;
+        }
+
+        if(document.getElementById("UID_"+param))
+            document.getElementById("linkUrl1").href =  "<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/"+document.getElementById("UID_"+param).value+"?opendocument";
+        if(document.getElementById("UID_"+param))
+            document.getElementById("linkUrl2").href =  "<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/"+document.getElementById("UID_"+param).value+"?opendocument";
+        //document.getElementById("linkUrl3").href =  "<%=ROOT_PATH%>Application/DigiFlowInfoPublish.nsf/0/"+document.getElementById("UID_"+param).value+"?opendocument";
+    }
+
+    function titleResize()
+    {
+        document.getElementById("linkUrl1").innerHTML = document.getElementById("linkUrl1").title;
+        document.getElementById("linkUrl2").innerHTML =  document.getElementById("linkUrl2").title;
+        var titleLen = document.getElementById("TPXW_Title_Size").offsetWidth;
+        titleLen = titleLen*3/40-2;
+        if(document.getElementById("linkUrl1").innerHTML.length > titleLen*2-2)
+            document.getElementById("linkUrl1").innerHTML = document.getElementById("linkUrl1").innerHTML.substr(0,titleLen*2-2)+"...";
+        if(document.getElementById("linkUrl2").innerHTML.length > titleLen*4-10)
+            document.getElementById("linkUrl2").innerHTML = document.getElementById("linkUrl2").innerHTML.substr(0,titleLen*4-2)+"...";
+
+    }
+
+</script>

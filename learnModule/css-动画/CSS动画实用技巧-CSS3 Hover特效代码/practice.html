@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<style type="text/css">
+
+    .demo,.img,.mask,.border{
+        width: 300px;
+        height: 300px;
+    }
+
+    .demo{
+        display: block;
+        margin: 50px auto;
+        position: relative;
+    }
+    
+    .img{
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        background-position: center center;
+    }
+    .border{
+        position: absolute;
+        border: 10px solid #4cd964;
+        border-left-color: #007aff;
+        border-top-color: #007aff;
+        left: 0px;
+        top: 0px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        transition: all 0.5s ease-in;
+        -webkit-transition: all .5s ease-in;
+    }
+    .mask{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        border-radius: 50%;
+        color: rgba(255,255,255,0);
+        transition: all .5s ease-in;
+        -webkit-transition: all .5s ease-in;
+    }
+    .info{
+        position:absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+    }
+
+    .demo:hover .mask{
+        color: rgba(255,255,255,1);
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .demo:hover .border{
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+</style>
+
+<a class="demo">
+    <div class="img" style="background-image:url(http://ww3.sinaimg.cn/mw690/9c7cd2cdjw1e60hntjcq2j211y0lcq5e.jpg)"></div>
+    <div class="mask">
+        <div class="info">
+            <h3>Fuck off</h3>
+            <p>I want leave</p>
+        </div>
+    </div>
+    <div class="border"></div>
+
+</a>
+</body>
+</html>

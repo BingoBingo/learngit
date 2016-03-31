@@ -1,0 +1,192 @@
+<!doctype html>
+<head>
+
+    <style>
+        /*ul{list-style:none;}*/
+        /**{*/
+            /*margin:0;*/
+            /*padding:0;*/
+        /*}*/
+        /*li h3{*/
+            /*font-size:14px;*/
+            /*font-weight:400;*/
+        /*}*/
+        /*li{*/
+            /*display:block;*/
+            /*height:31px;*/
+            /*line-height:31px;*/
+            /*overflow: hidden;*/
+            /*margin: 1px 10px 0;*/
+            /*border-bottom:1px solid #dedede;*/
+            /*vertical-align: bottom;*/
+        /*}*/
+        /*.cat{*/
+            /*background:#f8f8f8;*/
+            /*width:150px;*/
+            /*border:1px solid #bbbbbb;*/
+        /*}*/
+
+        /*li i{*/
+            /*background: url(sidebar.png);*/
+            /*display: inline;*/
+            /*float: left;*/
+            /*height: 30px;*/
+            /*width: 24px;*/
+            /*margin: 5px 10px 0 0;*/
+        /*}*/
+
+        /*.cat-2 i{*/
+            /*background-position: 0px -24px;*/
+        /*}*/
+        /*.cat-3 i{*/
+            /*background-position: 0px -48px;*/
+        /*}*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+        ul{
+            list-style: none;
+        }
+
+        ul li{
+            display: block;
+            line-height: 40px;
+            height: 40px;
+            width: 300px;
+            float: left;
+        }
+
+        .box{
+            background-color: #EBF3FA;
+            width: 300px;
+            height: 500px;
+            text-align: center;
+        }
+        .form{
+            width: 400px;
+            height: 80px;
+        }
+        .login{
+            width: 300px;
+            height: 45px;
+            margin: 15px 0px;
+            text-align: center;
+        }
+        .reg{
+            width: 300px;
+            height: 45px;
+            text-align: center;
+        }
+        .username ,.password{
+            text-align: center;
+            border: 1px solid #DEDEDE;
+            border-radius: 5px;
+            height: 25px;
+            width: 200px;
+        }
+        .btn-1 ,.btn-2{
+            background: url("sp.png");
+            width: 190px;
+            height: 38px;
+            border: 0px;
+        }
+        .btn-2{
+            background-position: 0 -38px;
+        }
+        input[type="checkbox"] + label:before {
+            background: #fff url(check.png);
+            content: " ";
+            height: 22px;
+            position: absolute;
+            width: 22px;
+            vertical-align: bottom;
+        }
+
+        input[type="checkbox"]:checked + label:before{
+            background-position: -48px 0;
+        }
+
+        input[type="checkbox"] {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            vertical-align: bottom;
+        }
+        .checkbox{
+            width: 300px;
+            height: 45px;
+            position: relative;
+            margin-left: -9px;
+            margin-top: 15px;
+        }
+        .label{
+            margin-left: 30px;
+            font-size: 12px;
+            font-weight: 300;
+            font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+        .checkbox a{
+            margin-left: 20px;
+            font-size: 12px;
+            font-weight: 300;
+            font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<!--添加列表的结构-->
+
+<!--<div class="cat">-->
+    <!--<ul>-->
+        <!--<li class="cat-1">-->
+            <!--<i></i>-->
+            <!--<h3>服装配饰</h3>-->
+        <!--</li>-->
+
+        <!--<li class="cat-2">-->
+            <!--<i></i>-->
+            <!--<h3>户外用品</h3>-->
+        <!--</li>-->
+
+        <!--<li class="cat-3">-->
+            <!--<i></i>-->
+            <!--<h3>汽车配件</h3>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+
+
+<div class="box">
+    <div class="form">
+        <ul>
+            <li>
+                <input type="text" class="username" placeholder="邮箱/手机号/用户名">
+            </li>
+            <li>
+                <input type="password"  class="password" placeholder="密码">
+            </li>
+        </ul>
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" class="autoLogin" id="example"><label for="example"></label><label class="label">下次自动登陆</label><a>忘记密码？</a>
+    </div>
+
+    <div class="login">
+        <input type="button" class="btn-1">
+    </div>
+    <div class="reg">
+        <input type="button" class="btn-2">
+    </div>
+
+</div>
+
+
+</body>
+</html>
